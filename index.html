@@ -128,7 +128,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Project Card 1: Nebula Cloud -->
         <div
-            class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border">
+            class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border cursor-pointer"
+            onclick="openGallery('caeli')">
             <div class="relative aspect-video overflow-hidden">
                 <div
                     class="project-image w-full h-full bg-center bg-cover transition-transform duration-500"
@@ -174,11 +175,12 @@
         </div>
         <!-- Project Card 2: Quantum Ledger -->
         <div
-            class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border">
+            class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border cursor-pointer"
+            onclick="openGallery('quran')">
             <div class="relative aspect-video overflow-hidden">
                 <div
                     class="project-image w-full h-full bg-center bg-cover transition-transform duration-500"
-                    data-alt="Digital representation of a secure encrypted database ledger"
+                    data-alt="Abstract futuristic cloud computing dashboard with neon blue lines"
                     style='background-image: url("assets/quran_app.png");'>
                 </div>
                 <div
@@ -218,7 +220,8 @@
         </div>
         <!-- Project Card 3: Synth Wave UI -->
         <div
-            class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border">
+        class="project-card group relative flex flex-col bg-white dark:bg-[#1a2b2c] border border-primary/5 dark:border-white/5 rounded-xl overflow-hidden transition-all duration-300 glow-border cursor-pointer"
+            onclick="openGallery('edc')">
             <div class="relative aspect-video overflow-hidden">
                 <div
                     class="project-image w-full h-full bg-center bg-cover transition-transform duration-500"
@@ -286,4 +289,33 @@
             </div>
         </div>
     </footer>
+    <div id="imageModal"
+        class="hidden fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300"
+        onclick="closeModal()">
+
+        <button
+            class="absolute top-6 right-8 text-white hover:text-[#17bfcf] text-5xl font-bold leading-none z-50"
+            onclick="closeModal()">&times;</button>
+
+        <div
+            class="relative w-full max-w-5xl flex items-center justify-center h-full">
+
+            <button
+                class="absolute left-2 md:-left-12 text-white/50 hover:text-white text-6xl font-bold p-4 transition-colors z-50 select-none"
+                onclick="prevImage(event)">&#8249;</button>
+
+            <img id="modalImage"
+                class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain border border-[#17bfcf]/20"
+                src alt="Project Screenshot" onclick="event.stopPropagation()">
+
+            <button
+                class="absolute right-2 md:-right-12 text-white/50 hover:text-white text-6xl font-bold p-4 transition-colors z-50 select-none"
+                onclick="nextImage(event)">&#8250;</button>
+        </div>
+
+        <p class="text-white/50 mt-4 text-sm font-mono">Use Arrow Keys ← → to
+            navigate</p>
+    </div>
+
+    <script src="buttons.js"></script>
 </body></html>
